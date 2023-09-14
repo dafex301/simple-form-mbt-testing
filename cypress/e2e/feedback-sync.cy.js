@@ -7,16 +7,16 @@ describe("feedback machine", () => {
       plan.paths.forEach((path) => {
         it(path.description, () => {
           return cy.visit("http://localhost:3000").then(() => {
-            return path.test(); // Execute the test path
+            return path.test(cy); // Execute the test path
           }); // Visit your local site
         });
       });
     });
   });
 
-  // describe("coverage", () => {
-  //   it("should pass", () => {
-  //     feedbackModel.testCoverage();
-  //   });
-  // });
+  describe("coverage", () => {
+    it("should pass", () => {
+      feedbackModel.testCoverage();
+    });
+  });
 });
